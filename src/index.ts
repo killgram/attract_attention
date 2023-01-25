@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // scheduler
 const scheduler = new ToadScheduler();
-const sendMessageTask = new Task("keep awake", () =>
+const sendMessageTask = new Task("send message", () =>
   AttractAttentionBot.sendMessage()
 );
 const sendMessageJob = new SimpleIntervalJob(

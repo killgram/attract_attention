@@ -1,4 +1,4 @@
-import { Config, Keys } from "../../configuration";
+import { Config } from "../../configuration";
 import { FirebaseService } from "../../services";
 import { randomizer, timeLogic } from "../../utils";
 
@@ -19,10 +19,19 @@ const sendMessage = async () => {
   );
   if (isExist) {
     if (randomizer(new Date().getHours() === config?.end_send)) {
-      console.log("send");
+      const data = {
+        timeSend: new Date().getDate(),
+        end_send: config?.end_send,
+        start_send: config?.start_send,
+        isWork: config?.isWork,
+        chat_id: config?.chat_id,
+      };
+      await FirebaseService.updateTimeSend(data);
       // sendViaBot(config?.chat_id).then((_) => {
       //   console.log("Success send message");
       // });
+
+      console.log("send");
     }
   }
 };
