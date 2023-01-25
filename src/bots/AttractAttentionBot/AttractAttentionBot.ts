@@ -20,19 +20,15 @@ const sendMessage = async () => {
   if (isExist) {
     if (randomizer(new Date().getHours() === config?.end_send)) {
       console.log("send");
+      // sendViaBot(config?.chat_id).then((_) => {
+      //   console.log("Success send message");
+      // });
     }
-    // sendViaBot().then((_) => {
-    //   console.log("Success send message");
-    // });
   }
 };
 
-
-const sendViaBot = async () => {
-  await Config.AttractAttentionBotInstance.telegram.sendMessage(
-    Keys.CHAT_ID,
-    "test"
-  );
+const sendViaBot = async (chatId: number) => {
+  await Config.AttractAttentionBotInstance.telegram.sendMessage(chatId, "test");
 };
 
 export { runBot, sendMessage };
