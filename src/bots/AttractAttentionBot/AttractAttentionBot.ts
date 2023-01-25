@@ -27,6 +27,7 @@ const sendMessage = async () => {
   }
 };
 
+
 const sendViaBot = async () => {
   await Config.AttractAttentionBotInstance.telegram.sendMessage(
     Keys.CHAT_ID,
