@@ -12,7 +12,7 @@ const changeConfig = async (req: Request, res: Response) => {
   });
 
   res.status(200).send({
-    title: `gooooood`,
+    title: "Successful",
     success: true,
   });
 };
