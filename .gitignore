@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Custom
+package-lock.json
+.idea
+src/configuration/Keys.ts
+src/configuration/Config.ts
