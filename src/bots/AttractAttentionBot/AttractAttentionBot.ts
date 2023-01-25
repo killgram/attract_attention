@@ -26,7 +26,7 @@ const sendMessage = async () => {
         isWork: config?.isWork,
         chat_id: config?.chat_id,
       };
-      await FirebaseService.updateTimeSend(data);
+      // await FirebaseService.updateTimeSend(data);
       // sendViaBot(config?.chat_id).then((_) => {
       //   console.log("Success send message");
       // });
@@ -40,4 +40,4 @@ const sendViaBot = async (chatId: number) => {
   await Config.AttractAttentionBotInstance.telegram.sendMessage(chatId, "test");
 };
 
-export { runBot, sendMessage };
+export { runBot, sendMessage, sendViaBot };

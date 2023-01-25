@@ -1,3 +1,3 @@
-import { runBot, sendMessage } from "./AttractAttentionBot";
+import { runBot, sendMessage, sendViaBot } from "./AttractAttentionBot";
 
-export { runBot, sendMessage };
+export { runBot, sendMessage, sendViaBot };
