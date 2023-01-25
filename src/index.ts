@@ -8,6 +8,9 @@ import { Constants } from "./configuration";
 const app: Application = express();
 const PORT = process.env.PORT || 9987;
 
+// modules
+import { getWorkStatus } from "./modules";
+
 // configuration
 app.use(cors());
 app.use(express.json());
@@ -22,12 +25,15 @@ const sendMessageJob = new SimpleIntervalJob(
   { seconds: Constants.UPDATE_TIME },
   sendMessageTask
 );
-scheduler.addSimpleIntervalJob(sendMessageJob);
+// scheduler.addSimpleIntervalJob(sendMessageJob);
 
 // bots
 AttractAttentionBot.runBot().then((_) => {
   console.log("AttractAttentionBot is up!");
 });
+
+// GET
+app.get("/status", getWorkStatus);
 
 // listener
 app.listen(PORT, (): void => {

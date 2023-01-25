@@ -108,3 +108,4 @@ package-lock.json
 .idea
 src/configuration/Keys.ts
 src/configuration/Config.ts
+src/configuration/Firebase.ts
