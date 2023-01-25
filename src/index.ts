@@ -9,7 +9,7 @@ const app: Application = express();
 const PORT = process.env.PORT || 9987;
 
 // modules
-import { getWorkStatus, changeConfig } from "./modules";
+import { getWorkStatus, changeConfig, hardPostMessage } from "./modules";
 
 // configuration
 app.use(cors());
@@ -37,6 +37,7 @@ app.get("/status", getWorkStatus);
 
 // POST
 app.post("/changeConfig", changeConfig);
+app.post("/postMessage", hardPostMessage);
 
 // listener
 app.listen(PORT, (): void => {
