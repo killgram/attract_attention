@@ -29,7 +29,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.10.0",
     "prettier": "^2.7.1",
-    "telegraf": "^4.11.2"
+    "telegraf": "^4.11.2",
+    "toad-scheduler": "^2.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
