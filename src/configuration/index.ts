@@ -3,5 +3,13 @@ import * as Config from "./Config";
 import { Constants } from "./Constants";
 import { firebaseConfig } from "./Firebase";
 import { client } from "./dbClient";
+import { AttractAttentionCollectionEnum } from "./dbCollections";
 
-export { Keys, Config, Constants, firebaseConfig, client };
+export {
+  Keys,
+  Config,
+  Constants,
+  firebaseConfig,
+  client,
+  AttractAttentionCollectionEnum,
+};

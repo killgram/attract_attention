@@ -25,11 +25,11 @@ const sendMessageJob = new SimpleIntervalJob(
   { seconds: Constants.UPDATE_TIME },
   sendMessageTask
 );
-// scheduler.addSimpleIntervalJob(sendMessageJob);
+scheduler.addSimpleIntervalJob(sendMessageJob);
 
 // bots
 AttractAttentionBot.runBot().then((_) => {
-  console.log("AttractAttentionBot is up!");
+  console.log("AttractAttentionBot is up, if anyone cares");
 });
 
 // GET
