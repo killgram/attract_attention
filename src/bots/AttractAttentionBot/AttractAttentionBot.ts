@@ -1,6 +1,6 @@
 import { Config } from "../../configuration";
-import { FirebaseService, ImageService } from "../../services";
-import { pickImage, randomizer, timeLogic } from "../../utils";
+import { FirebaseService, ImageService, TitleService } from "../../services";
+import { pickCompliment, pickImage, randomizer, timeLogic } from "../../utils";
 
 const runBot = async () => {
   Config.AttractAttentionBotInstance.start((ctx: any) =>
@@ -38,12 +38,13 @@ const sendMessage = async () => {
 
 const sendViaBot = async (chatId: number) => {
   const imagesData = await ImageService.getImageLink();
+  const titleData = await TitleService.getTitleService();
   const imageUrl = pickImage(imagesData);
-
+  const compliment = pickCompliment(titleData);
   await Config.AttractAttentionBotInstance.telegram.sendPhoto(
     chatId,
     imageUrl,
-    { caption: "test" }
+    { caption: compliment }
   );
 };
 

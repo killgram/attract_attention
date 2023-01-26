@@ -6,6 +6,7 @@ import { client } from "./dbClient";
 import {
   AttractAttentionCollectionEnum,
   ImagesCollectionEnum,
+  TitlesCollectionEnum,
 } from "./dbCollections";
 
 export {
@@ -16,4 +17,5 @@ export {
   client,
   AttractAttentionCollectionEnum,
   ImagesCollectionEnum,
+  TitlesCollectionEnum,
 };
