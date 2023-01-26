@@ -1,6 +1,6 @@
 import { Config } from "../../configuration";
-import { FirebaseService } from "../../services";
-import { randomizer, timeLogic } from "../../utils";
+import { FirebaseService, ImageService } from "../../services";
+import { pickImage, randomizer, timeLogic } from "../../utils";
 
 const runBot = async () => {
   Config.AttractAttentionBotInstance.start((ctx: any) =>
@@ -27,9 +27,9 @@ const sendMessage = async () => {
         chat_id: config?.chat_id,
       };
       // await FirebaseService.updateTimeSend(data);
-      // sendViaBot(config?.chat_id).then((_) => {
-      //   console.log("Success send message");
-      // });
+      sendViaBot(config?.chat_id).then((_) => {
+        console.log("Success send message");
+      });
 
       console.log("send");
     }
@@ -37,7 +37,14 @@ const sendMessage = async () => {
 };
 
 const sendViaBot = async (chatId: number) => {
-  await Config.AttractAttentionBotInstance.telegram.sendMessage(chatId, "test");
+  const imagesData = await ImageService.getImageLink();
+  const imageUrl = pickImage(imagesData);
+
+  await Config.AttractAttentionBotInstance.telegram.sendPhoto(
+    chatId,
+    imageUrl,
+    { caption: "test" }
+  );
 };
 
 export { runBot, sendMessage, sendViaBot };

@@ -3,7 +3,10 @@ import * as Config from "./Config";
 import { Constants } from "./Constants";
 import { firebaseConfig } from "./Firebase";
 import { client } from "./dbClient";
-import { AttractAttentionCollectionEnum } from "./dbCollections";
+import {
+  AttractAttentionCollectionEnum,
+  ImagesCollectionEnum,
+} from "./dbCollections";
 
 export {
   Keys,
@@ -12,4 +15,5 @@ export {
   firebaseConfig,
   client,
   AttractAttentionCollectionEnum,
+  ImagesCollectionEnum,
 };
