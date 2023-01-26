@@ -26,12 +26,10 @@ const sendMessage = async () => {
         isWork: config?.isWork,
         chat_id: config?.chat_id,
       };
-      // await FirebaseService.updateTimeSend(data);
+      await FirebaseService.updateTimeSend(data);
       sendViaBot(config?.chat_id).then((_) => {
         console.log("Success send message");
       });
-
-      console.log("send");
     }
   }
 };

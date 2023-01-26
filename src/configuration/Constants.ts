@@ -1,5 +1,5 @@
 const Constants = {
-  UPDATE_TIME: 5,
+  UPDATE_TIME: 26,
 };
 
 export { Constants };

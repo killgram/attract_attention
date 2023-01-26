@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 9987;
 // modules
 import { getWorkStatus, changeConfig, hardPostMessage } from "./modules";
 
+// middleware
+import { verificationKey } from "./middleware";
+
 // configuration
 app.use(cors());
 app.use(express.json());
@@ -22,7 +25,7 @@ const sendMessageTask = new Task("send message", () =>
   AttractAttentionBot.sendMessage()
 );
 const sendMessageJob = new SimpleIntervalJob(
-  { seconds: Constants.UPDATE_TIME },
+  { minutes: Constants.UPDATE_TIME },
   sendMessageTask
 );
 scheduler.addSimpleIntervalJob(sendMessageJob);
@@ -36,8 +39,8 @@ AttractAttentionBot.runBot().then((_) => {
 app.get("/status", getWorkStatus);
 
 // POST
-app.post("/changeConfig", changeConfig);
-app.post("/postMessage", hardPostMessage);
+app.post("/attractAttentionBot/changeConfig", verificationKey, changeConfig);
+app.post("/attractAttentionBot/postMessage", verificationKey, hardPostMessage);
 
 // listener
 app.listen(PORT, (): void => {
