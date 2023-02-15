@@ -5,6 +5,7 @@ import { getConfig } from "./GetConfig";
 import { getImages } from "./GetImages";
 import { getTitle } from "./GetTitle";
 import { changeImages } from "./ChangeImages";
+import { changeTitle } from "./ChangeTitle";
 
 export {
   getWorkStatus,
@@ -14,4 +15,5 @@ export {
   getImages,
   getTitle,
   changeImages,
+  changeTitle,
 };
