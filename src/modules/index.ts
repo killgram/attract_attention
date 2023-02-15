@@ -3,5 +3,13 @@ import { changeConfig } from "./ChangeConfig";
 import { hardPostMessage } from "./HardPostMessage";
 import { getConfig } from "./GetConfig";
 import { getImages } from "./GetImages";
+import { getTitle } from "./GetTitle";
 
-export { getWorkStatus, changeConfig, hardPostMessage, getConfig, getImages };
+export {
+  getWorkStatus,
+  changeConfig,
+  hardPostMessage,
+  getConfig,
+  getImages,
+  getTitle,
+};
