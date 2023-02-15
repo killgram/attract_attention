@@ -14,6 +14,7 @@ import {
   changeConfig,
   hardPostMessage,
   getConfig,
+  getImages,
 } from "./modules";
 
 // middleware
@@ -43,6 +44,7 @@ AttractAttentionBot.runBot().then((_) => {
 // GET
 app.get("/status", getWorkStatus);
 app.get("/attractAttentionBot/getConfig", getKeyVerification, getConfig);
+app.get("/attractAttentionBot/getImages", getKeyVerification, getImages);
 
 // POST
 app.post("/attractAttentionBot/changeConfig", verificationKey, changeConfig);
