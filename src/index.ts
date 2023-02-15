@@ -9,10 +9,15 @@ const app: Application = express();
 const PORT = process.env.PORT || 9987;
 
 // modules
-import { getWorkStatus, changeConfig, hardPostMessage } from "./modules";
+import {
+  getWorkStatus,
+  changeConfig,
+  hardPostMessage,
+  getConfig,
+} from "./modules";
 
 // middleware
-import { verificationKey } from "./middleware";
+import { verificationKey, getKeyVerification } from "./middleware";
 
 // configuration
 app.use(cors());
@@ -37,6 +42,7 @@ AttractAttentionBot.runBot().then((_) => {
 
 // GET
 app.get("/status", getWorkStatus);
+app.get("/attractAttentionBot/getConfig", getKeyVerification, getConfig);
 
 // POST
 app.post("/attractAttentionBot/changeConfig", verificationKey, changeConfig);
