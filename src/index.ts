@@ -16,6 +16,7 @@ import {
   getConfig,
   getImages,
   getTitle,
+  changeImages,
 } from "./modules";
 
 // middleware
@@ -49,8 +50,9 @@ app.get("/attractAttentionBot/getImages", getKeyVerification, getImages);
 app.get("/attractAttentionBot/getTitle", getKeyVerification, getTitle);
 
 // POST
-app.post("/attractAttentionBot/changeConfig", verificationKey, changeConfig);
 app.post("/attractAttentionBot/postMessage", verificationKey, hardPostMessage);
+app.post("/attractAttentionBot/changeConfig", verificationKey, changeConfig);
+app.post("/attractAttentionBot/changeImages", verificationKey, changeImages);
 
 // listener
 app.listen(PORT, (): void => {
